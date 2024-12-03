@@ -96,3 +96,40 @@ form input, form select, form textarea {
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    main {
+        padding: 1rem;
+    }
+}
+
+.content-section {
+    padding: 2rem;
+    margin: 1rem auto;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content-section h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.content-section p, .content-section ul, .content-section form {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
