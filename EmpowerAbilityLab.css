@@ -92,7 +92,9 @@ form label {
     font-weight: bold;
     margin-bottom: 0.5em;
 }
-
+form div {
+    margin-top: 1em; /* Adds spacing between form fields */
+}
 form input,
 form select,
 form textarea {
@@ -122,6 +124,37 @@ form button {
 form button:hover {
     background: #218838;
 }
+[role="switch"] {
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+[role="switch"][aria-checked="true"] {
+    background: #28a745;
+}
+
+[role="switch"]::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    top: 2.5px;
+    left: 5px;
+    transition: left 0.3s;
+}
+
+[role="switch"][aria-checked="true"]::before {
+    left: 25px;
+}
+
 
 /* Modal Styling */
 #modal {
