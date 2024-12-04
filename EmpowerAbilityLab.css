@@ -1,31 +1,24 @@
-
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    line-height: 1.6;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #333;
+header, footer {
+    background-color: #222;
     color: #fff;
-    padding: 1rem;
-}
-
-.logo {
-    height: 50px;
+    padding: 1em 0;
+    text-align: center;
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 1em;
 }
 
 nav ul li a {
@@ -33,90 +26,29 @@ nav ul li a {
     text-decoration: none;
 }
 
-footer {
-    text-align: center;
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
+.hidden {
+    display: none;
 }
 
-main {
-    padding: 2rem;
-}
-
-button {
-    padding: 0.5rem 1rem;
-    background: #007BFF;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-form label {
-    display: block;
-    margin: 0.5rem 0 0.2rem;
-}
-
-form input, form select, form textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Modal styles */
+/* Modal styling */
 #modal {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: white;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 1em;
+    border: 1px solid #ccc;
     z-index: 1000;
-    border-radius: 10px;
-}
-
-#modal.hidden {
-    display: none;
 }
 
 #modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
 
-/* Hidden class for toggling sections */
-.hidden {
-    display: none;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-    nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    main {
-        padding: 1rem;
-    }
-}
