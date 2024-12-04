@@ -56,42 +56,6 @@ document.addEventListener('keydown', (event) => {
         closeModal();
     }
 });
-// References to modal elements
-const communityModal = document.getElementById('communityModal');
-const openCommunityButton = document.getElementById('openCommunity');
-const closeCommunityButton = document.getElementById('closeCommunity');
-
-// Open Modal
-openCommunityButton.addEventListener('click', () => {
-    communityModal.classList.remove('hidden');
-    communityModal.style.display = 'block';
-    openCommunityButton.setAttribute('aria-expanded', 'true');
-    communityModal.querySelector('.modal-content').focus();
-});
-
-// Close Modal
-function closeCommunityModal() {
-    communityModal.classList.add('hidden');
-    communityModal.style.display = 'none';
-    openCommunityButton.setAttribute('aria-expanded', 'false');
-    openCommunityButton.focus();
-}
-
-closeCommunityButton.addEventListener('click', closeCommunityModal);
-
-// Close Modal on Overlay Click
-communityModal.addEventListener('click', (event) => {
-    if (event.target === communityModal) {
-        closeCommunityModal();
-    }
-});
-
-// Close Modal on Escape Key
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && !communityModal.classList.contains('hidden')) {
-        closeCommunityModal();
-    }
-});
 
 // Trap Focus in Modal
 function trapFocus(event) {
