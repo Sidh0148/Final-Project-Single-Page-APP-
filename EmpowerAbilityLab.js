@@ -4,7 +4,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
         event.preventDefault();
         const targetSection = document.querySelector(event.target.getAttribute('href'));
 
-        // Hide all sections and remove aria-current from all links
+        // Hide all sections and remove aria-current from links
         document.querySelectorAll('.page-section').forEach(section => section.classList.add('hidden'));
         document.querySelectorAll('.nav-link').forEach(link => link.removeAttribute('aria-current'));
 
@@ -29,7 +29,6 @@ openModalButton.addEventListener('click', () => {
     modal.classList.remove('hidden');
     modalOverlay.classList.remove('hidden');
     modal.setAttribute('aria-hidden', 'false');
-    modal.setAttribute('tabindex', '-1');
     modal.focus();
 
     // Trap focus inside the modal
