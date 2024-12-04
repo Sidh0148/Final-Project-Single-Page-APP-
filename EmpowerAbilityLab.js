@@ -10,8 +10,8 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
         // Show the target section and set aria-current
         targetSection.classList.remove('hidden');
-        targetSection.setAttribute('tabindex', '-1'); // Allow focus
-        targetSection.focus();
+        targetSection.setAttribute('tabindex', '-1'); // Ensure the section is focusable
+        targetSection.focus(); // Move focus to the target section
         event.target.setAttribute('aria-current', 'page');
 
         // Update history state
@@ -31,11 +31,13 @@ openModalButton.addEventListener('click', () => {
     modalOverlay.classList.remove('hidden');
     openModalButton.setAttribute('aria-expanded', 'true');
     modal.focus();
+
+    // Trap focus within the modal
+    document.addEventListener('keydown', trapFocus);
 });
 
 // Close Modal
 closeModalButton.addEventListener('click', closeModal);
-
 modalOverlay.addEventListener('click', closeModal);
 
 function closeModal() {
@@ -43,6 +45,9 @@ function closeModal() {
     modalOverlay.classList.add('hidden');
     openModalButton.setAttribute('aria-expanded', 'false');
     openModalButton.focus();
+
+    // Remove focus trap
+    document.removeEventListener('keydown', trapFocus);
 }
 
 // Close Modal on Escape Key
@@ -52,19 +57,19 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-
+// Trap Focus in Modal
 function trapFocus(event) {
     const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
     const firstElement = focusableElements[0];
     const lastElement = focusableElements[focusableElements.length - 1];
 
     if (event.key === 'Tab') {
-        if (event.shiftKey) {
+        if (event.shiftKey) { // Shift+Tab
             if (document.activeElement === firstElement) {
                 event.preventDefault();
                 lastElement.focus();
             }
-        } else {
+        } else { // Tab
             if (document.activeElement === lastElement) {
                 event.preventDefault();
                 firstElement.focus();
@@ -97,13 +102,13 @@ liveRegion.setAttribute('id', 'live-region');
 liveRegion.setAttribute('aria-live', 'polite');
 liveRegion.style.position = 'absolute';
 liveRegion.style.left = '-9999px'; // Hide visually but available for screen readers
-document.body.appendChild(liveRegion);
+document.getElementById('scheduleForm').appendChild(liveRegion); // Append to the form for contextual relevance
 
 // Switch Functionality
 const switchElement = document.getElementById('emailUpdates');
 switchElement.addEventListener('click', () => {
     const isChecked = switchElement.getAttribute('aria-checked') === 'true';
-    switchElement.setAttribute('aria-checked', !isChecked);
+    switchElement.setAttribute('aria-checked', String(!isChecked)); // Ensure Boolean conversion to string
 });
 
 
