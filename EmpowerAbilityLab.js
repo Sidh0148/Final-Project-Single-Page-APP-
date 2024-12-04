@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function showSection(sectionId) {
         sections.forEach(section => {
             if (section.id === sectionId) {
-                section.style.display = 'block'; // Show the selected section
+                section.classList.remove('hidden'); // Show the selected section
             } else {
-                section.style.display = 'none'; // Hide all other sections
+                section.classList.add('hidden'); // Hide all other sections
             }
         });
     }
