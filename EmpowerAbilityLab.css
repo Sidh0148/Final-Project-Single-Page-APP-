@@ -124,7 +124,7 @@ form button {
 form button:hover {
     background: #218838;
 }
-[role="switch"] {
+role="switch" {
     display: inline-block;
     width: 50px;
     height: 25px;
@@ -135,11 +135,12 @@ form button:hover {
     transition: background 0.3s;
 }
 
-[role="switch"][aria-checked="true"] {
+role="switch"
+aria-checked="true" {
     background: #28a745;
 }
 
-[role="switch"]::before {
+role="switch"::before {
     content: '';
     position: absolute;
     width: 20px;
@@ -151,7 +152,9 @@ form button:hover {
     transition: left 0.3s;
 }
 
-[role="switch"][aria-checked="true"]::before {
+role="switch"
+aria-checked="true"
+::before {
     left: 25px;
 }
 
