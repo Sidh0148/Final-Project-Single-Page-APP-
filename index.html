@@ -9,24 +9,24 @@
 <body>
     <header>
         <img src="images/logo.png" alt="Empower Ability Labs Logo" class="logo">
-        <nav role="navigation" aria-label="Main Navigation">
+        <nav aria-label="Main Navigation">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#schedule">Schedule a Call</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#schedule" class="nav-link">Schedule a Call</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <!-- Home Section -->
-        <section id="home" tabindex="0" aria-labelledby="home-title">
+        <section id="home" class="page-section" aria-labelledby="home-title">
             <h1 id="home-title">Welcome to Empower Ability Labs!</h1>
             <p>Your hub for learning and empathy-building through accessibility.</p>
             <button id="openModal" aria-expanded="false" aria-controls="modal">Meet the Empower Community</button>
         </section>
 
         <!-- Services Section -->
-        <section id="services" tabindex="0" aria-labelledby="services-title" hidden>
+        <section id="services" class="page-section hidden" aria-labelledby="services-title">
             <h1 id="services-title">Our Services</h1>
             <ul>
                 <li><strong>Empathy Lab Days and Workshops:</strong> Hands-on experiences to understand the challenges faced by individuals with disabilities.</li>
@@ -36,7 +36,7 @@
         </section>
 
         <!-- Schedule a Call Section -->
-        <section id="schedule" tabindex="0" aria-labelledby="schedule-title" hidden>
+        <section id="schedule" class="page-section hidden" aria-labelledby="schedule-title">
             <h1 id="schedule-title">Schedule a Call</h1>
             <form id="scheduleForm">
                 <label for="businessName">Business Name:</label>
@@ -55,14 +55,14 @@
                     <option value="usability">Usability Testing</option>
                 </select>
 
-                <div id="eventDetails" hidden>
+                <div id="eventDetails" class="hidden">
                     <label for="eventDescription">Please tell us about your event:</label>
                     <textarea id="eventDescription" name="eventDescription"></textarea>
                 </div>
 
                 <div>
                     <label for="emailUpdates">Receive emails about updates and services:</label>
-                    <div role="switch" id="emailUpdates" aria-checked="false" tabindex="0"></div>
+                    <div role="switch" id="emailUpdates" aria-checked="false" tabindex="0">Toggle</div>
                 </div>
 
                 <button type="submit">Schedule a Call</button>
@@ -74,13 +74,15 @@
     </footer>
 
     <!-- Modal -->
-    <div id="modal-overlay" hidden></div>
+    <div id="modal-overlay" class="hidden"></div>
     <div id="modal" class="hidden" role="dialog" aria-labelledby="modal-title">
         <h2 id="modal-title">Community Details</h2>
         <p>We work with McGill University, Walmart.ca, Apple.ca, and more.</p>
         <button id="closeModal" aria-label="Close">Close</button>
     </div>
+
     <script src="js/EmpowerAbilityLab.js"></script>
 </body>
 </html>
+
 
