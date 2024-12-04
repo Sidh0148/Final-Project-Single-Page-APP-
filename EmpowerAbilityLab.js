@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     // Modal Elements
     const modal = document.getElementById('modal');
