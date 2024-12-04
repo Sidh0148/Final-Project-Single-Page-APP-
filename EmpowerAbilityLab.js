@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const sections = document.querySelectorAll('main > section');
     const navLinks = document.querySelectorAll('nav ul li a');
 
+    // Modal Elements
+    const modal = document.getElementById('modal');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const openModalButton = document.getElementById('openModal');
+    const closeModalButton = document.getElementById('closeModal');
+
     // Function to show the selected section and hide others
     function showSection(sectionId) {
         sections.forEach(section => {
@@ -26,4 +32,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initially show only the Home section
     showSection('home');
+
+    // Open Modal
+    openModalButton.addEventListener('click', function () {
+        modal.classList.remove('hidden');
+        modalOverlay.hidden = false;
+        openModalButton.setAttribute('aria-expanded', 'true');
+        modal.focus();
+    });
+
+    // Close Modal
+    function closeModal() {
+        modal.classList.add('hidden');
+        modalOverlay.hidden = true;
+        openModalButton.setAttribute('aria-expanded', 'false');
+        openModalButton.focus();
+    }
+
+    closeModalButton.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+        }
+    });
 });
