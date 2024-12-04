@@ -59,3 +59,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+// Ensure section toggling functionality works
+document.addEventListener('DOMContentLoaded', function () {
+    const sections = document.querySelectorAll('main > section');
+    const navLinks = document.querySelectorAll('nav ul li a');
+
+    // Function to show the selected section and hide others
+    function showSection(sectionId) {
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.style.display = 'block'; // Show the selected section
+            } else {
+                section.style.display = 'none'; // Hide all other sections
+            }
+        });
+    }
+
+    // Add click event listeners to navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetSection = link.getAttribute('href').replace('#', '');
+            showSection(targetSection);
+        });
+    });
+
+    // Show only the Home section by default
+    showSection('home');
+});
