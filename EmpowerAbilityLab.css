@@ -121,9 +121,14 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
-    background: #218838;
+form button:form button:hover {
+    background: #1e7e34;
 }
+
+form button:focus {
+    outline: 3px solid #1e7e34;
+}
+
 role="switch" {
     display: inline-block;
     width: 50px;
