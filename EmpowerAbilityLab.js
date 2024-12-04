@@ -25,33 +25,33 @@ const modalOverlay = document.getElementById('modal-overlay');
 const openModalButton = document.getElementById('openModal');
 const closeModalButton = document.getElementById('closeModal');
 
+// Open Modal
 openModalButton.addEventListener('click', () => {
     modal.classList.remove('hidden');
     modalOverlay.classList.remove('hidden');
-    modal.setAttribute('aria-hidden', 'false');
+    openModalButton.setAttribute('aria-expanded', 'true');
     modal.focus();
-
-    // Trap focus inside the modal
-    modal.addEventListener('keydown', trapFocus);
-    document.addEventListener('keydown', closeOnEscape);
 });
 
+// Close Modal
 closeModalButton.addEventListener('click', closeModal);
+
+modalOverlay.addEventListener('click', closeModal);
 
 function closeModal() {
     modal.classList.add('hidden');
     modalOverlay.classList.add('hidden');
-    modal.setAttribute('aria-hidden', 'true');
+    openModalButton.setAttribute('aria-expanded', 'false');
     openModalButton.focus();
-    modal.removeEventListener('keydown', trapFocus);
-    document.removeEventListener('keydown', closeOnEscape);
 }
 
-function closeOnEscape(event) {
-    if (event.key === 'Escape') {
+// Close Modal on Escape Key
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
         closeModal();
     }
-}
+});
+
 
 function trapFocus(event) {
     const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
