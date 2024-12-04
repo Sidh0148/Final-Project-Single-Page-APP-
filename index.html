@@ -22,10 +22,73 @@
     <main>
         <!-- Home Section -->
         <section id="home" class="page-section" tabindex="0" aria-labelledby="home-title">
-            <h1 id="home-title">Welcome to Empower Ability Labs!</h1>
-            <p>Your hub for learning and empathy-building through accessibility.</p>
-            <button id="openModal" aria-expanded="false" aria-controls="modal">Meet the Empower Community</button>
-        </section>
+    <h1 id="home-title">Welcome to Empower Ability Labs!</h1>
+    <p>
+        Empower Ability Labs is a hub for learning and empathy-building. We are on a mission to foster understanding and promote inclusive digital experiences for all.
+        We offer a range of services designed to promote accessibility awareness, drive inclusivity, and enhance the user experience. And help you find answers to:
+    </p>
+    <ul>
+        <li>How do people with disabilities use technology and navigate the digital world?</li>
+        <li>What tools do they employ?</li>
+    </ul>
+
+    <button id="openModal" aria-expanded="false" aria-controls="modal">Meet the Empower Community</button>
+
+    <h2>Our Offerings</h2>
+    <table class="offerings-table">
+        <thead>
+            <tr>
+                <th>Our Approach</th>
+                <th>Services</th>
+                <th>Testimonials</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    Empower Ability Labs utilizes a hands-on approach to raise awareness and promote empathy. Our immersive workshops and lab days provide participants 
+                    with a unique opportunity to step into the shoes of individuals with disabilities and navigate the world from their perspective.
+                    <br><a href="https://www.google.com/search/howsearchworks/our-approach/" target="_blank">Learn more</a>
+                </td>
+                <td>
+                    Promote accessibility awareness and enhance the user experience:
+                    <ul>
+                        <li>Empathy lab days and workshops</li>
+                        <li>Go beyond WCAG compliance!</li>
+                        <li>Inspirational speakers</li>
+                    </ul>
+                    <br><a href="https://www.elevenways.be/en/services" target="_blank">Learn more</a>
+                </td>
+                <td>
+                    Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate, 
+                    inspire, educate, and enrich your team’s understanding of inclusion.
+                    <br><a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial" target="_blank">Learn more</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Modal for "Meet the Empower Community" -->
+<div id="modal-overlay" class="hidden"></div>
+<div id="modal" class="hidden" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-content">
+    <h2 id="modal-title">Community Steering Committee</h2>
+    <div id="modal-content">
+        <p>
+            We get "aha!" moments from product managers who try our services for the first time. We have offered many lab days, workshops, and usability testing 
+            services to many organizations, including:
+        </p>
+        <ul>
+            <li>McGill University</li>
+            <li>Walmart.ca</li>
+            <li>Apple.ca</li>
+            <li>Google.ca</li>
+            <li>Government of Canada</li>
+        </ul>
+    </div>
+    <button id="closeModal" aria-label="Close Modal">Close</button>
+</div>
+
 
         <!-- Services Section -->
         <section id="services" class="page-section hidden" tabindex="0" aria-labelledby="services-title">
