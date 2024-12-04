@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empower Ability Labs</title>
-    <link rel="stylesheet" href="EmpowerAbilityLab.css">
+    <link rel="stylesheet" href="css/EmpowerAbilityLab.css">
 </head>
 <body>
     <header>
         <img src="images/logo.png" alt="Empower Ability Labs Logo" class="logo">
-        <nav aria-label="Main Navigation">
+        <nav role="navigation" aria-label="Main Navigation">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -20,28 +19,26 @@
     </header>
     <main>
         <!-- Home Section -->
-        <section id="home">
-            <h1>Welcome to Empower Ability Labs!</h1>
+        <section id="home" tabindex="0" aria-labelledby="home-title">
+            <h1 id="home-title">Welcome to Empower Ability Labs!</h1>
             <p>Your hub for learning and empathy-building through accessibility.</p>
-            <button id="openModal" aria-expanded="false">Meet the Empower Community</button>
+            <button id="openModal" aria-expanded="false" aria-controls="modal">Meet the Empower Community</button>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="hidden">
-            <h1>Our Services</h1>
-            <p>Explore the services we offer:</p>
+        <section id="services" tabindex="0" aria-labelledby="services-title" hidden>
+            <h1 id="services-title">Our Services</h1>
             <ul>
                 <li><strong>Empathy Lab Days and Workshops:</strong> Hands-on experiences to understand the challenges faced by individuals with disabilities.</li>
-                <li><strong>Invite Inspirational Speakers:</strong> Gain insights and inspiration from speakers sharing their unique journeys.</li>
+                <li><strong>Inspirational Speakers:</strong> Gain insights and inspiration from speakers sharing their unique journeys.</li>
                 <li><strong>Usability Testing:</strong> Collaborate with individuals using assistive technologies to refine your products.</li>
             </ul>
         </section>
 
         <!-- Schedule a Call Section -->
-        <section id="schedule" class="hidden">
-            <h1>Schedule a Call</h1>
-            <p>Fill out the form below to schedule a call with our team:</p>
-            <form>
+        <section id="schedule" tabindex="0" aria-labelledby="schedule-title" hidden>
+            <h1 id="schedule-title">Schedule a Call</h1>
+            <form id="scheduleForm">
                 <label for="businessName">Business Name:</label>
                 <input type="text" id="businessName" name="businessName" required>
 
@@ -65,7 +62,7 @@
 
                 <div>
                     <label for="emailUpdates">Receive emails about updates and services:</label>
-                    <input type="checkbox" id="emailUpdates" name="emailUpdates">
+                    <div role="switch" id="emailUpdates" aria-checked="false" tabindex="0"></div>
                 </div>
 
                 <button type="submit">Schedule a Call</button>
@@ -75,12 +72,15 @@
     <footer>
         <p>&copy; Copyright Empower Ability Labs Inc 2023. All rights reserved.</p>
     </footer>
+
+    <!-- Modal -->
     <div id="modal-overlay" hidden></div>
-    <div id="modal" class="hidden">
-        <h2>Community Details</h2>
+    <div id="modal" class="hidden" role="dialog" aria-labelledby="modal-title">
+        <h2 id="modal-title">Community Details</h2>
         <p>We work with McGill University, Walmart.ca, Apple.ca, and more.</p>
-        <button id="closeModal">Close</button>
+        <button id="closeModal" aria-label="Close">Close</button>
     </div>
-    <script src="EmpowerAbilityLab.js"></script>
+    <script src="js/EmpowerAbilityLab.js"></script>
 </body>
 </html>
+
