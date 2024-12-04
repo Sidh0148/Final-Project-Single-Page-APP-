@@ -1,12 +1,12 @@
-// Manage focus and navigation
-document.querySelectorAll('nav a').forEach(link => {
+// Manage focus and section visibility
+document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', (event) => {
         event.preventDefault();
-        const section = document.querySelector(event.target.getAttribute('href'));
-        document.querySelectorAll('main section').forEach(sec => sec.hidden = true);
-        section.hidden = false;
-        section.focus();
-        history.pushState(null, section.querySelector('h1').innerText, event.target.getAttribute('href'));
+        const target = document.querySelector(event.target.getAttribute('href'));
+        document.querySelectorAll('.page-section').forEach(section => section.classList.add('hidden'));
+        target.classList.remove('hidden');
+        target.focus();
+        history.pushState(null, '', event.target.getAttribute('href'));
     });
 });
 
@@ -14,23 +14,22 @@ document.querySelectorAll('nav a').forEach(link => {
 const modal = document.getElementById('modal');
 const modalOverlay = document.getElementById('modal-overlay');
 document.getElementById('openModal').addEventListener('click', () => {
-    modal.hidden = false;
-    modalOverlay.hidden = false;
+    modal.classList.remove('hidden');
+    modalOverlay.classList.remove('hidden');
     modal.focus();
 });
-
 document.getElementById('closeModal').addEventListener('click', () => {
-    modal.hidden = true;
-    modalOverlay.hidden = true;
+    modal.classList.add('hidden');
+    modalOverlay.classList.add('hidden');
 });
 
-// Show/Hide "Tell us about your event" field
+// Show/Hide "Tell us about your event"
 document.getElementById('purpose').addEventListener('change', (event) => {
     const eventDetails = document.getElementById('eventDetails');
-    eventDetails.hidden = event.target.value !== 'speakers';
+    eventDetails.classList.toggle('hidden', event.target.value !== 'speakers');
 });
 
-// Custom switch functionality
+// Switch functionality
 const switchElement = document.getElementById('emailUpdates');
 switchElement.addEventListener('click', () => {
     const isChecked = switchElement.getAttribute('aria-checked') === 'true';
@@ -40,6 +39,8 @@ switchElement.addEventListener('click', () => {
 // Form submission
 document.getElementById('scheduleForm').addEventListener('submit', (event) => {
     event.preventDefault();
-    alert('Thank you! We will get back to you soon.');
+    alert('Thank you for scheduling a call with us!');
 });
+
+
 
