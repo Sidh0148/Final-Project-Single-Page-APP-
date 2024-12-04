@@ -1,29 +1,29 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Modal Elements
-    const modal = document.getElementById('modal');
-    const modalOverlay = document.getElementById('modal-overlay');
-    const openModalButton = document.getElementById('openModal');
-    const closeModalButton = document.getElementById('closeModal');
+    // Get all sections and navigation links
+    const sections = document.querySelectorAll('main > section');
+    const navLinks = document.querySelectorAll('nav ul li a');
 
-    // Open Modal
-    openModalButton.addEventListener('click', function () {
-        modal.classList.remove('hidden');
-        modalOverlay.hidden = false;
-        openModalButton.setAttribute('aria-expanded', 'true');
+    // Function to show the selected section and hide others
+    function showSection(sectionId) {
+        sections.forEach(section => {
+            if (section.id === sectionId) {
+                section.style.display = 'block'; // Show the selected section
+            } else {
+                section.style.display = 'none'; // Hide all other sections
+            }
+        });
+    }
+
+    // Add click event listeners to all navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            const targetSection = link.getAttribute('href').replace('#', '');
+            showSection(targetSection);
+        });
     });
 
-    // Close Modal
-    closeModalButton.addEventListener('click', function () {
-        modal.classList.add('hidden');
-        modalOverlay.hidden = true;
-        openModalButton.setAttribute('aria-expanded', 'false');
-    });
-
-    // Hide modal if overlay is clicked
-    modalOverlay.addEventListener('click', function () {
-        modal.classList.add('hidden');
-        modalOverlay.hidden = true;
-        openModalButton.setAttribute('aria-expanded', 'false');
-    });
+    // Initially show only the Home section
+    showSection('home');
 });
